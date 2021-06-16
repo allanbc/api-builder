@@ -1,3 +1,5 @@
 ﻿*.class
 target/classes/META-INF/MANIFEST.MF
 target/classes/META-INF/maven/br.com.builder.cliente.api.geo/stoom/pom.properties
+target
+target

@@ -22,7 +22,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 
 import com.github.javafaker.Faker;
 
@@ -70,14 +69,11 @@ public class ClienteServiceImplTest {
 	@Mock
 	private Faker faker;
 	
-	private PageRequest paginacao = PageRequest.of(0, 10);
-	
 	@Mock
 	ArgumentCaptor<Cliente> captor;
 	
 	@BeforeEach
 	void setup() {
-		//serviceImpl = Mockito.mock(ClienteServiceImpl.class);
 		repository = Mockito.mock(ClienteRepository.class);
 		filter = Mockito.mock(ClienteFilter.class);
 		response = Mockito.mock(ClienteResponse.class);
@@ -132,9 +128,9 @@ public class ClienteServiceImplTest {
 		
 		Mockito.lenient().when(cliente.toClienteResponse()).thenReturn(response);
 		
-		Mockito.lenient().when(serviceImpl.findAll(filter, paginacao)).thenReturn(clientePage);
+		Mockito.lenient().when(repository.findAll()).thenReturn(List.of(cliente));
 		
-		assertThat((clientePage).toList());
+		assertThat(cliente).isNotNull();
 	}
 	
 	@Test
