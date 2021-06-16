@@ -70,6 +70,10 @@ public class ClienteServiceImpl implements ClienteService {
 		
 		Page<Cliente> cliente = this.repository.findAll(ClienteSpecification.buildSpecification(filter), paginacao);
 		
+		if(cliente.isEmpty()) {
+			throw new NotFoundException("Client not found!");
+		}
+		
 		return cliente;
 	}
 

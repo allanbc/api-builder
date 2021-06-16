@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "02a439e2-0494-4d4f-a7e2-e50f4fbc34c8",
+		"name": "API  Builder Cliente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[F001]GET/clientes/{id}",
+			"item": [
+				{
+					"name": "[200] - Buscar um cliente",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clientes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[400] - Client not found",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes/0",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clientes/0",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes",
+										"0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "[F001]POST/clientes",
+			"item": [
+				{
+					"name": "[201] - Cadastrar cliente",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"codigo\": \"{{$randomAlphaNumeric}}\",\r\n    \"dataNascimento\": \"1980-10-10\",\r\n    \"status\": true,\r\n    \"enderecos\":\r\n    [\r\n        {\r\n            \"logradouro\": \"{{$randomStreetAddress}}\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"{{$randomCatchPhraseNoun}}\",\r\n            \"bairro\": \"{{$randomCatchPhraseDescriptor}}\",\r\n            \"cidade\": \"{{$randomCity}}\",\r\n            \"estado\": \"{{$randomCity}}\",\r\n            \"pais\": \"{{$randomCountry}}\",\r\n            \"cep\": \"{{$randomCountryCode}}\",\r\n            \"corresponsencia\": \"Sim\",\r\n            \"cobranca\": \"Não\",\r\n            \"ativo\": {{$randomBoolean}}\r\n        },\r\n        {\r\n            \"logradouro\": \"{{$randomStreetAddress}}\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"{{$randomCatchPhraseNoun}}\",\r\n            \"bairro\": \"{{$randomCatchPhraseDescriptor}}\",\r\n            \"cidade\": \"{{$randomCity}}\",\r\n            \"estado\": \"{{$randomCity}}\",\r\n            \"pais\": \"{{$randomCountry}}\",\r\n            \"cep\": \"{{$randomCountryCode}}\",\r\n            \"corresponsencia\": \"Não\",\r\n            \"cobranca\": \"Sim\",\r\n            \"ativo\": {{$randomBoolean}}\r\n        }\r\n\r\n    ]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[400] - Bad Request",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\",\r\n    \"codigo\": \"{{$randomAlphaNumeric}}\",\r\n    \"dataNascimento\": \"1980-10-10\",\r\n    \"status\": true,\r\n    \"enderecos\":\r\n    [\r\n        {\r\n            \"logradouro\": \"{{$randomStreetAddress}}\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"{{$randomCatchPhraseNoun}}\",\r\n            \"bairro\": \"{{$randomCatchPhraseDescriptor}}\",\r\n            \"cidade\": \"{{$randomCity}}\",\r\n            \"estado\": \"{{$randomCity}}\",\r\n            \"pais\": \"{{$randomCountry}}\",\r\n            \"cep\": \"{{$randomCountryCode}}\",\r\n            \"corresponsencia\": \"Sim\",\r\n            \"cobranca\": \"Não\",\r\n            \"ativo\": {{$randomBoolean}}\r\n        },\r\n        {\r\n            \"logradouro\": \"{{$randomStreetAddress}}\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"{{$randomCatchPhraseNoun}}\",\r\n            \"bairro\": \"{{$randomCatchPhraseDescriptor}}\",\r\n            \"cidade\": \"{{$randomCity}}\",\r\n            \"estado\": \"{{$randomCity}}\",\r\n            \"pais\": \"{{$randomCountry}}\",\r\n            \"cep\": \"{{$randomCountryCode}}\",\r\n            \"corresponsencia\": \"Não\",\r\n            \"cobranca\": \"Sim\",\r\n            \"ativo\": {{$randomBoolean}}\r\n        }\r\n\r\n    ]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "[F001]PUT/clientes/{id}",
+			"item": [
+				{
+					"name": "[204] - Update cliente",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes/2",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"codigo\": \"{{$randomMACAddress}}\",\r\n    \"dataNascimento\": \"1978-10-10\",\r\n    \"enderecos\":\r\n    [\r\n        {\r\n            \"id\": 2,\r\n            \"logradouro\": \"Rua Paes de Andrade\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"L16 Q35\",\r\n            \"bairro\": \"Olavo Bilac\",\r\n            \"cidade\": \"Duque de Caxias\",\r\n            \"estado\": \"Rio de Janeiro\",\r\n            \"pais\": \"Brasil\",\r\n            \"cep\": \"25036240\",\r\n            \"corresponsencia\": \"Sim\",\r\n            \"cobranca\": \"Não\",\r\n            \"ativo\": true\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"logradouro\": \"Rua Pedro Lessa\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"Loja 1\",\r\n            \"bairro\": \"Olavo Bilac\",\r\n            \"cidade\": \"Duque de Caxias\",\r\n            \"estado\": \"RJ\",\r\n            \"pais\": \"Brasil\",\r\n            \"cep\": \"25036242\",\r\n            \"corresponsencia\": \"Sim\",\r\n            \"cobranca\": \"Não\",\r\n            \"ativo\": true\r\n        }\r\n\r\n    ]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[404] - Client not found",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes/2",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"codigo\": \"{{$randomMACAddress}}\",\r\n    \"dataNascimento\": \"1978-10-10\",\r\n    \"enderecos\":\r\n    [\r\n        {\r\n            \"id\": 2,\r\n            \"logradouro\": \"Rua Paes de Andrade\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"L16 Q35\",\r\n            \"bairro\": \"Olavo Bilac\",\r\n            \"cidade\": \"Duque de Caxias\",\r\n            \"estado\": \"Rio de Janeiro\",\r\n            \"pais\": \"Brasil\",\r\n            \"cep\": \"25036240\",\r\n            \"corresponsencia\": \"Sim\",\r\n            \"cobranca\": \"Não\",\r\n            \"ativo\": true\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"logradouro\": \"Rua Pedro Lessa\",\r\n            \"numero\": \"{{$randomInt}}\",\r\n            \"complemento\": \"Loja 1\",\r\n            \"bairro\": \"Olavo Bilac\",\r\n            \"cidade\": \"Duque de Caxias\",\r\n            \"estado\": \"RJ\",\r\n            \"pais\": \"Brasil\",\r\n            \"cep\": \"25036242\",\r\n            \"corresponsencia\": \"Sim\",\r\n            \"cobranca\": \"Não\",\r\n            \"ativo\": true\r\n        }\r\n\r\n    ]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes/0",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes",
+										"0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "[F002] - GET/clientes",
+			"item": [
+				{
+					"name": "[200] - Buscar todos clientes",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Stanton",
+											"disabled": true
+										},
+										{
+											"key": "codigo",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[400] - Bad request",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clientes?status=teste",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Stanton",
+											"disabled": true
+										},
+										{
+											"key": "codigo",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "teste"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[404] - Client not found",
+					"item": [
+						{
+							"name": "{{baseUrl}}/clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZGEgcHJvdmEgZGEgQnVpbGRlciIsInN1YiI6IjEiLCJpYXQiOjE2MjM3ODI5ODIsImV4cCI6MTYyMzg2OTM4Mn0.oS2bbOQINMxYcEdLh7sCGWR4xi5Tru1gtfEo3ICdPS8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clientes?name=Mc Catra",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Mc Catra"
+										},
+										{
+											"key": "codigo",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
