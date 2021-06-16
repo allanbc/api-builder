@@ -1,13 +1,12 @@
 package br.com.builder.cliente.controller.dto;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.builder.cliente.model.Cliente;
 import br.com.builder.cliente.model.Endereco;
@@ -26,8 +25,7 @@ public class ClienteResponse {
 	
 	private String codigo;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate dataNascimento;
+	private int idade;
 	
 	private boolean status;
 	
@@ -40,7 +38,7 @@ public class ClienteResponse {
 		this.id = cliente.getId();
 		this.name = cliente.getName();
 		this.codigo = cliente.getCodigo();
-		this.dataNascimento = cliente.getDataNascimento();
+		this.idade = Period.between(cliente.getDataNascimento(), LocalDate.now()).getYears();
 		this.status = cliente.isStatus();
 		this.enderecos = cliente.getEnderecos().stream().collect(Collectors.toSet());
 	}

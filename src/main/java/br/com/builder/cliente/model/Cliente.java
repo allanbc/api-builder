@@ -50,6 +50,8 @@ public class Cliente {
 	@Column(name="status")
 	private boolean status;
 	
+	private int idade;
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "CLIENTE_ENDERECO", 
 			   joinColumns = @JoinColumn(name = "ID_CLIENTE"),
@@ -61,7 +63,7 @@ public class Cliente {
 		return ClienteResponse.builder()
 				.name(this.name)
 				.codigo(this.codigo)
-				.dataNascimento(this.dataNascimento)
+				.idade(this.idade)
 				.status(this.status)
 				.enderecos(this.enderecos)
 				.build();
